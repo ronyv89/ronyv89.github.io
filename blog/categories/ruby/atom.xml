@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ruby | Ardent Developer]]></title>
+  <link href="http://ardentdeveloper.com/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://ardentdeveloper.com/"/>
+  <updated>2013-08-20T06:22:47+05:30</updated>
+  <id>http://ardentdeveloper.com/</id>
+  <author>
+    <name><![CDATA[Rony Varghese]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[MultiShorten - Use multiple url shorteners at one place(Ruby)]]></title>
+    <link href="http://ardentdeveloper.com/blog/2013/05/13/multishorten-use-multiple-url-shorteners-at-one-place-ruby/"/>
+    <updated>2013-05-13T16:34:00+05:30</updated>
+    <id>http://ardentdeveloper.com/blog/2013/05/13/multishorten-use-multiple-url-shorteners-at-one-place-ruby</id>
+    <content type="html"><![CDATA[<p>There are many URL shorteners available out there. Each one has its own features and caveats. Many of the URL shorteners out there have APIs associated with them so that we can use them in our applications. The painful reality is that each one will have its own &ndash; way of handling request and producing the output, usage limitations, exceptions and so on.</p>
+
+<p>So using URL shorteners in your ruby application be pretty tricky. This is where <a href="http://github.com/ronyv89/multi_shorten">MultiShorten</a> comes to the rescue. This is a ruby gem you can use in your ruby app to utilize 9 different URL shortening services. These services don&rsquo;t require account registrations so using them is pretty straightforward. But mind you they have separate APIs and each have different input and output requirements. MultiShorten takes care of this on its own.</p>
+
+<h4>Installing</h4>
+
+<p>Add this line to your application&rsquo;s Gemfile:</p>
+
+<p><code>
+gem 'multi_shorten'
+</code></p>
+
+<p>And then execute:</p>
+
+<p><code>
+$ bundle
+</code></p>
+
+<p>Or install it yourself as:</p>
+
+<p><code>
+$ gem install multi_shorten
+</code></p>
+
+<h4>Usage</h4>
+
+<p>First require the gem where you want to use it</p>
+
+<p><code>ruby
+require 'multi_shorten'
+</code></p>
+
+<p>Next step is to instantiate a MultiShorten::Client object</p>
+
+<p><code>ruby
+client = MultiShorten::Client.new
+</code></p>
+
+<p>Now we can use this client to shorten any number of URLs with any of the 9 services. The client object has only one method &lsquo;shorten&rsquo;. Using this method we can shorten our required URLs. There are two modes</p>
+
+<ul>
+<li><h6>Single</h6>
+
+<p>Use this to shorten a URL with a single service. For example,</p></li>
+</ul>
+
+
+<p><code>ruby
+client.shorten({:mode =&gt; "single", :url =&gt; "http://www.google.com", :shortener =&gt; "b54"})
+</code>
+As you can see above, by passing the value of mode as single you can shorten the URL using a single shortener.</p>
+
+<p>The above request may generate an output as below</p>
+
+<p><code>ruby
+{ :status =&gt; :success, :short_url =&gt; "http://b54.in/9o" }
+</code></p>
+
+<ul>
+<li><h6>Multiple</h6></li>
+</ul>
+
+
+<p>You can also utilize multiple services to shorten the same URL. For this you have to specify the value of &lsquo;:mode&rsquo; option as &ldquo;multiple&rdquo;</p>
+
+<p><code>ruby
+client.shorten({:mode =&gt; "multiple", :url =&gt; "http://www.google.com", :shorteners =&gt; ["b54", "qr_cx"]})
+</code></p>
+
+<p>The above request may generate an output as below
+<code>ruby
+{"b54" =&gt; {:status =&gt; :fail }, "qr_cx" =&gt; {:status =&gt; :success, :short_url =&gt; "http://qr.cx/9o"}}
+</code></p>
+
+<p>As you can see, the URL shortening request made to B54 failed. But still you can use the QrCx shortened URL.</p>
+
+<h4>Available short codes</h4>
+
+<p><a href="http://b54.in">b54</a><br/>
+<a href="http://linkee.com">linkee</a><br/>
+<a href="http://goo.gl">goo_gl</a><br/>
+<a href="htpp://is.gd">is_gd</a><br/>
+<a href="http://jmb.tw/">jumbo_tweet</a><br/>
+<a href="http://metamark.net">meta_mark</a><br/>
+<a href="http://mtny.mobi" title="">mt_ny</a><br/>
+<a href="http://qr.cx">qr_cx</a><br/>
+<a href="http://shortr.info">shortr</a><br/></p>
+
+<p>You can use the above short codes, to select the service. Please refer to their respective pages to know more about the services.</p>
+
+<p>Happy Shortening!</p>
+]]></content>
+  </entry>
+  
+</feed>

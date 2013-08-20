@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+    <url>
+        <loc>
+            http://ardentdeveloper.com/blog/2013/05/13/multishorten-use-multiple-url-shorteners-at-one-place-ruby/
+        </loc>
+        <lastmod>2013-08-12T07:43:41+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://ardentdeveloper.com/blog/2013/08/12/tympanus-codrops-useful-resources-and-inspiration-for-creative-minds/
+        </loc>
+        <lastmod>2013-08-20T06:15:14+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://ardentdeveloper.com/blog/archives/</loc>
+        <lastmod>2013-08-20T06:15:14+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://ardentdeveloper.com/</loc>
+        <lastmod>2013-08-20T06:15:14+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://ardentdeveloper.com/robots.txt</loc>
+        <lastmod>2013-08-12T07:43:41+05:30</lastmod>
+    </url>
+</urlset>
